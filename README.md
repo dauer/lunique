@@ -17,12 +17,10 @@ Then have a look at the 'example.lua' file to see how to use the library.
 <table>
     <tr>
         <th>UUID</th>
-        <th></th>
         <th>lunique</th>
     </tr>
     <tr>
         <td>uuid_generate</td>
-        <td>&map;</td>
         <td>generate</td>
     </tr>
 </table>
