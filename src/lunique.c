@@ -1,6 +1,8 @@
 #include <uuid/uuid.h>
 #include "lauxlib.h"
 
+#define UUID_LEN 37
+
 static int Lgenerate(lua_State *L);
 static int Lgenerate_time(lua_State *L);
 static int Lgenerate_time_safe(lua_State *L);
@@ -16,7 +18,7 @@ static const luaL_Reg API[] = {
 
 static int Lgenerate(lua_State *L) {
     uuid_t uuid;
-    char str[37];
+    char str[UUID_LEN];
     uuid_generate(uuid);
     uuid_unparse(uuid, str);
     lua_pushlstring(L, str, sizeof(str));
@@ -25,7 +27,7 @@ static int Lgenerate(lua_State *L) {
 
 static int Lgenerate_time(lua_State *L) {
     uuid_t uuid;
-    char str[37];
+    char str[UUID_LEN];
     uuid_generate_time(uuid);
     uuid_unparse(uuid, str);
     lua_pushlstring(L, str, sizeof(str));
@@ -34,7 +36,7 @@ static int Lgenerate_time(lua_State *L) {
 
 static int Lgenerate_time_safe(lua_State *L) {
     uuid_t uuid;
-    char str[37] = "";
+    char str[UUID_LEN];
     int ret;
     ret = uuid_generate_time_safe(uuid);
     uuid_unparse(uuid, str);
