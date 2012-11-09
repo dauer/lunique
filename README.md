@@ -7,11 +7,14 @@ lunique is very early in development, expect errors etc.
 ## Requirements ##
 * lua 5.1+
 * uuid-dev
+* luaunit (http://phil.freehackers.org/programs/luaunit/) only required if you want to run the unittests in the ./tests folder
 
 ## Documentation ##
 Build the library using the Makefile in the ./src folder.
 
 Then have a look at the 'example.lua' file to see how to use the library.
+
+Or run the unittests: cd ./tests;./run-tests.lua
 
 ### Features implemented ###
 <table>
@@ -39,5 +42,5 @@ Then have a look at the 'example.lua' file to see how to use the library.
 
 ## Todo ##
 * Implement more functions from the UUID library
-* Do thorough testing (unittests...)
+* Do thorough testing
 * Write better documentation
