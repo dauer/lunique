@@ -1,7 +1,7 @@
 #include <uuid/uuid.h>
 #include "lauxlib.h"
 
-#define UUID_LEN 37
+#define UUID_LEN 36
 
 static int Lgenerate(lua_State *L);
 static int Lgenerate_time(lua_State *L);
