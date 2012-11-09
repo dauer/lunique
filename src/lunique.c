@@ -8,9 +8,9 @@ static int Ltime(lua_State *l);
 
 static const luaL_Reg API[] = {
     { "generate", Lgenerate },
-	{ "generate_time", Lgenerate_time },
-	{ "generate_time_safe", Lgenerate_time_safe },
-	{ "time", Ltime },
+    { "generate_time", Lgenerate_time },
+    { "generate_time_safe", Lgenerate_time_safe },
+    { "time", Ltime },
     { NULL, NULL }
 };
 
