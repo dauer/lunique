@@ -26,3 +26,12 @@ print(t2)
 u4 = lunique.generate_random()
 print("----- generate_random() -----")
 print(u4)
+
+-- Compare 2 uuid's
+c1 = lunique.compare(u3, u4)
+c2 = lunique.compare(u4, u3)
+c3 = lunique.compare(u4, u4)
+print("----- compare() -----")
+print(c1)
+print(c2)
+print(c3)
