@@ -28,6 +28,10 @@ Then have a look at the 'example.lua' file to see how to use the library.
     	<td>generate_time</td>
     </tr>
     <tr>
+    	<td>uuid_generate_time_safe</td>
+    	<td>generate_time_safe</td>
+    </tr>
+    <tr>
     	<td>uuid_time</td>
     	<td>time</td>
     </tr>
