@@ -23,6 +23,14 @@ Then have a look at the 'example.lua' file to see how to use the library.
         <td>uuid_generate</td>
         <td>generate</td>
     </tr>
+    <tr>
+    	<td>uuid_generate_time</td>
+    	<td>generate_time</td>
+    </tr>
+    <tr>
+    	<td>uuid_time</td>
+    	<td>time</td>
+    </tr>
 </table>
 
 ## Todo ##
