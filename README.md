@@ -35,12 +35,20 @@ Or run the unittests: cd ./tests;./run-tests.lua
     	<td>generate_time_safe</td>
     </tr>
     <tr>
+    	<td>uuid_generate_random</td>
+    	<td>generate_random</td>
+    </tr>
+    <tr>
     	<td>uuid_time</td>
     	<td>time</td>
     </tr>
+    <tr>
+    	<td>uuid_compare</td>
+    	<td>compare</td>
+    </tr>
+
 </table>
 
 ## Todo ##
-* Implement more functions from the UUID library
 * Do thorough testing
 * Write better documentation
