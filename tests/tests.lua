@@ -15,7 +15,7 @@ function Testing:testGenerate()
     -- I test that the length is 36 and that the string only contains
     -- letters: a-z
     -- numbers: 0-9
-    -- a the dash: -
+    -- dashes: -
     local uuid = lunique.generate()
     local len, pos = valid(uuid)
     assertEquals(len, 36)
