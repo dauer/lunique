@@ -20,41 +20,41 @@ static const luaL_Reg API[] = {
     { NULL, NULL }
 };
 
-static int Lgenerate(lua_State *L) {
+typedef enum {
+    STD, TIME, TIMESAFE, RANDOM
+} Generators_t;
+
+int static _generator(lua_State *L, Generators_t g) {
     uuid_t uuid;
     char str[UUID_LEN];
-    uuid_generate(uuid);
+    int ret = 0;
+    if(g == TIME)           uuid_generate_time(uuid);
+    else if(g == TIMESAFE)  ret = uuid_generate_time_safe(uuid);
+    else if(g == RANDOM)    uuid_generate_random(uuid);
+    else                    uuid_generate(uuid);
     uuid_unparse(uuid, str);
     lua_pushlstring(L, str, sizeof(str));
+    return ret;
+}
+
+static int Lgenerate(lua_State *L) {
+    _generator(L, STD);
     return 1;
 }
 
 static int Lgenerate_time(lua_State *L) {
-    uuid_t uuid;
-    char str[UUID_LEN];
-    uuid_generate_time(uuid);
-    uuid_unparse(uuid, str);
-    lua_pushlstring(L, str, sizeof(str));
+    _generator(L, TIME);
     return 1;
 }
 
 static int Lgenerate_time_safe(lua_State *L) {
-    uuid_t uuid;
-    char str[UUID_LEN];
-    int ret;
-    ret = uuid_generate_time_safe(uuid);
-    uuid_unparse(uuid, str);
-    lua_pushlstring(L, str, sizeof(str));
+    int ret = _generator(L, TIMESAFE);
     lua_pushinteger(L, ret);
     return 2;
 }
 
 static int Lgenerate_random(lua_State *L) {
-    uuid_t uuid;
-    char str[UUID_LEN];
-    uuid_generate_random(uuid);
-    uuid_unparse(uuid, str);
-    lua_pushlstring(L, str, sizeof(str));
+    _generator(L, RANDOM);
     return 1;
 }
 
