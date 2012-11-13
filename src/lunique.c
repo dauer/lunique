@@ -30,10 +30,15 @@ static int _generator(lua_State *L, const Generators_t g) {
     uuid_t uuid;
     char str[UUID_LEN];
     int ret = 0;
-    if(g == TIME)           uuid_generate_time(uuid);
-    else if(g == TIMESAFE)  ret = uuid_generate_time_safe(uuid);
-    else if(g == RANDOM)    uuid_generate_random(uuid);
-    else                    uuid_generate(uuid);
+    if(g == TIME) {
+        uuid_generate_time(uuid);
+    } else if(g == TIMESAFE) {
+        ret = uuid_generate_time_safe(uuid);
+    } else if(g == RANDOM) {
+        uuid_generate_random(uuid);
+    } else {
+        uuid_generate(uuid);
+    }
     uuid_unparse(uuid, str);
     lua_pushlstring(L, str, sizeof(str));
     return ret;
