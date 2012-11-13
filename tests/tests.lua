@@ -75,4 +75,24 @@ function Testing:testCompare()
     assertEquals(gt, 1)
 end
 
+function Testing:testValid()
+    local result
+    -- Test a hardcoded valid, invalid and empty uuid string
+    result  = lunique.valid("778d279d-dad5-4d32-b2a6-d325affeadbf")
+    assertEquals(result, true)
+    result = lunique.valid("778d279d+dad5-4d32-b2a6-d325affeadbf")
+    assertEquals(result, false)
+    result = lunique.valid("")
+    assertEquals(result, false)
+    -- Test all the uuid generator functions
+    result = lunique.valid(lunique.generate())
+    assertEquals(result, true)
+    result = lunique.valid(lunique.generate_time())
+    assertEquals(result, true)
+    result = lunique.valid(lunique.generate_time_safe())
+    assertEquals(result, true)
+    result = lunique.valid(lunique.generate_random())
+    assertEquals(result, true)
+end
+
 LuaUnit:run()

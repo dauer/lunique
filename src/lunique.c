@@ -9,6 +9,7 @@ static int Lgenerate_time_safe(lua_State *L);
 static int Lgenerate_random(lua_State *L);
 static int Ltime(lua_State *L);
 static int Lcompare(lua_State *L);
+static int Lvalid(lua_State *l);
 
 static const luaL_Reg API[] = {
     { "generate", Lgenerate },
@@ -17,6 +18,7 @@ static const luaL_Reg API[] = {
     { "generate_random", Lgenerate_random },
     { "time", Ltime },
     { "compare", Lcompare },
+    { "valid", Lvalid },
     { NULL, NULL }
 };
 
@@ -79,6 +81,14 @@ static int Lcompare(lua_State *L) {
     uuid_parse(ustr2, uuid2);
     compare = uuid_compare(uuid1, uuid2);
     lua_pushinteger(L, compare);
+    return 1;
+}
+
+static int Lvalid(lua_State *L) {
+    uuid_t uuid;
+    const char *str = luaL_checkstring(L, 1);
+    int status = uuid_parse(str, uuid);
+    lua_pushboolean(L, status + 1);
     return 1;
 }
 
