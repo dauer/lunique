@@ -24,7 +24,7 @@ typedef enum {
     STD, TIME, TIMESAFE, RANDOM
 } Generators_t;
 
-static int _generator(lua_State *L, Generators_t g) {
+static int _generator(lua_State *L, const Generators_t g) {
     uuid_t uuid;
     char str[UUID_LEN];
     int ret = 0;
