@@ -67,6 +67,11 @@ function Testing:testTime()
     assertEquals(valid, 0)
 end
 
+function Testing:testTime_Fails()
+    local time, valid = lunique.time("Hello-World")
+    assertEquals(valid, -1)
+end
+
 function Testing:testCompare()
     local uuid1 = "778d279d-dad5-4d32-b2a6-d325affeadbf"
     local uuid2 = "833fb502-51eb-412c-800e-03902045e0cb"
