@@ -70,10 +70,11 @@ static int Ltime(lua_State *L) {
     struct timeval ret_tv;
     time_t t;
     const char *in = luaL_checkstring(L, 1);
-    uuid_parse(in, uuid);
+    int status = uuid_parse(in, uuid);
     t = uuid_time(uuid, &ret_tv);
     lua_pushinteger(L, (unsigned int)t);
-    return 1;
+    lua_pushinteger(L, status);
+    return 2;
 }
 
 static int Lcompare(lua_State *L) {

@@ -29,10 +29,11 @@ function Testing:testGenerateTime()
     local t = os.date('*t')
     local len, pos = valid(uuid)
     local time1 = os.time(t)
-    local time2 = lunique.time(uuid)
+    local time2, valid = lunique.time(uuid)
     assertEquals(len, 36)
     assertEquals(pos, nil)
     assertEquals(time1, time2)
+    assertEquals(valid, 0)
 end
 
 function Testing:testGenerateTimeSafe()
@@ -42,12 +43,13 @@ function Testing:testGenerateTimeSafe()
     local t = os.date('*t')
     local len, pos = valid(uuid)
     local time1 = os.time(t)
-    local time2 = lunique.time(uuid)
+    local time2, valid = lunique.time(uuid)
     status = (status == -1 or status == 0)
     assertEquals(len, 36)
     assertEquals(pos, nil)
     assertEquals(time1, time2)
     assertEquals(status, true)
+    assertEquals(valid, 0)
 end
 
 function Testing:testGenerateRandom()
@@ -60,8 +62,9 @@ end
 function Testing:testTime()
     -- UUID is generated Thu Nov 8 13:36:36 2012
     local time1 = 1352381796
-    local time2 = lunique.time("51715676-29a9-11e2-8668-001a4b53924b")
+    local time2, valid = lunique.time("51715676-29a9-11e2-8668-001a4b53924b")
     assertEquals(time1, time2)
+    assertEquals(valid, 0)
 end
 
 function Testing:testCompare()
