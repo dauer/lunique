@@ -70,12 +70,36 @@ end
 function Testing:testCompare()
     local uuid1 = "778d279d-dad5-4d32-b2a6-d325affeadbf"
     local uuid2 = "833fb502-51eb-412c-800e-03902045e0cb"
-    local eq = lunique.compare(uuid1, uuid1)
-    local lt = lunique.compare(uuid1, uuid2)
-    local gt = lunique.compare(uuid2, uuid1)
+    local eq, s1 = lunique.compare(uuid1, uuid1)
+    local lt, s2 = lunique.compare(uuid1, uuid2)
+    local gt, s3 = lunique.compare(uuid2, uuid1)
     assertEquals(eq, 0)
+    assertEquals(s1, 0)
     assertEquals(lt, -1)
+    assertEquals(s2, 0)
     assertEquals(gt, 1)
+    assertEquals(s3, 0)
+end
+
+function Testing:testCompare_Fail()
+    -- inavlid uuid note the '+' character
+    local uuid1 = "778d279d+dad5-4d32-b2a6-d325affeadbf"
+    local uuid2 = "833fb502-51eb-412c-800e-03902045e0cb"
+    -- invalid uuid it is empty
+    local uuid3 = ""
+    local f1, s1 = lunique.compare(uuid1, uuid1)
+    local f2, s2 = lunique.compare(uuid1, uuid2)
+    local f3, s3 = lunique.compare(uuid2, uuid1)
+    local f4, s4 = lunique.compare(uuid2, uuid3)
+    assertEquals(f1, -1)
+    assertEquals(s1, -1)
+    assertEquals(f2, -1)
+    assertEquals(s2, -1)
+    assertEquals(f3, 0)
+    assertEquals(s3, -1)
+    assertEquals(f4, 0)
+    assertEquals(s4, -1)
+
 end
 
 function Testing:testValid()
