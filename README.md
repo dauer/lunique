@@ -16,37 +16,50 @@ Then have a look at the 'example.lua' file to see how to use the library.
 
 Or run the unittests: cd ./tests;./run-tests.lua
 
+[UUID documentation](http://linux.die.net/man/3/uuid)
+
 ### Features implemented ###
 <table>
     <tr>
         <th>UUID</th>
         <th>lunique</th>
+        <th>Description</th>
     </tr>
     <tr>
         <td>uuid_generate</td>
-        <td>generate</td>
+        <td>string generate()</td>
+        <td>Create a new unique UUID</td>
     </tr>
     <tr>
     	<td>uuid_generate_time</td>
-    	<td>generate_time</td>
+    	<td>string generate_time()</td>
+        <td>Create a new unique UUID</td>
     </tr>
     <tr>
     	<td>uuid_generate_time_safe</td>
-    	<td>generate_time_safe</td>
+    	<td>string generate_time_safe()</td>
+        <td>Create a new unique UUID</td>
     </tr>
     <tr>
     	<td>uuid_generate_random</td>
-    	<td>generate_random</td>
+    	<td>string generate_random()</td>
+        <td>Create a new unique UUID</td>
     </tr>
     <tr>
     	<td>uuid_time</td>
-    	<td>time</td>
+    	<td>int time(string uuid)</td>
+    	<td>Extract the time at which the UUID was created </td>
     </tr>
     <tr>
     	<td>uuid_compare</td>
-    	<td>compare</td>
+    	<td>int compare(string uuid1, string uuid2)</td>
+    	<td>Compare whether two UUIDs are the same</td>
     </tr>
-
+    <tr>
+    	<td></td>
+    	<td>bool valid(string uuid)</td>
+    	<td>Validates if a specified string is a valid UUID</td>
+    </tr>
 </table>
 
 ## Todo ##
