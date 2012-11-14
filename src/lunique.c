@@ -23,17 +23,14 @@ static const luaL_Reg API[] = {
 };
 
 typedef enum {
-    STD, TIME, TIMESAFE, RANDOM
+    STD, TIME, RANDOM
 } Generators_t;
 
-static int _generator(lua_State *L, const Generators_t g) {
+static void _generator(lua_State *L, const Generators_t g) {
     uuid_t uuid;
     char str[UUID_LEN];
-    int ret = 0;
     if(g == TIME) {
         uuid_generate_time(uuid);
-    } else if(g == TIMESAFE) {
-        ret = uuid_generate_time_safe(uuid);
     } else if(g == RANDOM) {
         uuid_generate_random(uuid);
     } else {
@@ -41,7 +38,6 @@ static int _generator(lua_State *L, const Generators_t g) {
     }
     uuid_unparse(uuid, str);
     lua_pushlstring(L, str, sizeof(str));
-    return ret;
 }
 
 static int Lgenerate(lua_State *L) {
@@ -55,7 +51,11 @@ static int Lgenerate_time(lua_State *L) {
 }
 
 static int Lgenerate_time_safe(lua_State *L) {
-    int ret = _generator(L, TIMESAFE);
+    uuid_t uuid;
+    char str[UUID_LEN];
+    const int ret = uuid_generate_time_safe(uuid);
+    uuid_unparse(uuid, str);
+    lua_pushlstring(L, str, sizeof(str));
     lua_pushinteger(L, ret);
     return 2;
 }
