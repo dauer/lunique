@@ -66,18 +66,16 @@ static int Lgenerate_random(lua_State *L) {
 static int Ltime(lua_State *L) {
     uuid_t uuid;
     struct timeval ret_tv;
-    time_t t;
     const char *in = luaL_checkstring(L, 1);
     int status = uuid_parse(in, uuid);
-    t = uuid_time(uuid, &ret_tv);
+    const time_t t = uuid_time(uuid, &ret_tv);
     lua_pushinteger(L, (unsigned int)t);
     lua_pushinteger(L, status);
     return 2;
 }
 
 static int Lcompare(lua_State *L) {
-    uuid_t uuid1;
-    uuid_t uuid2;
+    uuid_t uuid1, uuid2;
     int compare;
     const char *ustr1 = luaL_checkstring(L, 1);
     const char *ustr2 = luaL_checkstring(L, 2);
@@ -94,8 +92,8 @@ static int Lcompare(lua_State *L) {
 
 static int Lvalid(lua_State *L) {
     uuid_t uuid;
-    const char *str = luaL_checkstring(L, 1);
-    int status = uuid_parse(str, uuid);
+    const char *str  = luaL_checkstring(L, 1);
+    const int status = uuid_parse(str, uuid);
     lua_pushboolean(L, status + 1);
     return 1;
 }
