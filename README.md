@@ -31,34 +31,34 @@ Or run the unittests: cd ./tests;./run-tests.lua
         <td>Create a new unique UUID</td>
     </tr>
     <tr>
-    	<td>uuid_generate_time</td>
-    	<td>string generate_time()</td>
+        <td>uuid_generate_time</td>
+        <td>string generate_time()</td>
         <td>Create a new unique UUID</td>
     </tr>
     <tr>
-    	<td>uuid_generate_time_safe</td>
-    	<td>string generate_time_safe()</td>
+        <td>uuid_generate_time_safe</td>
+        <td>string generate_time_safe()</td>
         <td>Create a new unique UUID</td>
     </tr>
     <tr>
-    	<td>uuid_generate_random</td>
-    	<td>string generate_random()</td>
+        <td>uuid_generate_random</td>
+        <td>string generate_random()</td>
         <td>Create a new unique UUID</td>
     </tr>
     <tr>
-    	<td>uuid_time</td>
-    	<td>int time(string uuid)</td>
-    	<td>Extract the time at which the UUID was created </td>
+        <td>uuid_time</td>
+        <td>int time(string uuid)</td>
+        <td>Extract the time at which the UUID was created </td>
     </tr>
     <tr>
-    	<td>uuid_compare</td>
-    	<td>int compare(string uuid1, string uuid2)</td>
-    	<td>Compare whether two UUIDs are the same</td>
+        <td>uuid_compare</td>
+        <td>int compare(string uuid1, string uuid2)</td>
+        <td>Compare whether two UUIDs are the same</td>
     </tr>
     <tr>
-    	<td></td>
-    	<td>bool valid(string uuid)</td>
-    	<td>Validates if a specified string is a valid UUID</td>
+        <td>uuid_parse</td>
+        <td>bool valid(string uuid)</td>
+        <td>Validates if a specified string is a valid UUID</td>
     </tr>
 </table>
 
