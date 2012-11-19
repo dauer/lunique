@@ -26,7 +26,7 @@ typedef enum {
     STD, TIME, RANDOM
 } Generators_t;
 
-static void _generator(lua_State *L, const Generators_t g) {
+static int _generator(lua_State *L, const Generators_t g) {
     uuid_t uuid;
     char str[UUID_LEN];
     if(g == TIME) {
@@ -38,16 +38,15 @@ static void _generator(lua_State *L, const Generators_t g) {
     }
     uuid_unparse(uuid, str);
     lua_pushlstring(L, str, sizeof(str));
+    return 1;
 }
 
 static int Lgenerate(lua_State *L) {
-    _generator(L, STD);
-    return 1;
+    return _generator(L, STD);
 }
 
 static int Lgenerate_time(lua_State *L) {
-    _generator(L, TIME);
-    return 1;
+    return _generator(L, TIME);
 }
 
 static int Lgenerate_time_safe(lua_State *L) {
@@ -61,8 +60,7 @@ static int Lgenerate_time_safe(lua_State *L) {
 }
 
 static int Lgenerate_random(lua_State *L) {
-    _generator(L, RANDOM);
-    return 1;
+    return _generator(L, RANDOM);
 }
 
 static int Ltime(lua_State *L) {
