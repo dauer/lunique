@@ -37,8 +37,8 @@ Or run the unittests: cd ./tests;./run-tests.lua
     </tr>
     <tr>
         <td>uuid_generate_time_safe</td>
-        <td>string generate_time_safe()</td>
-        <td>Create a new unique UUID</td>
+        <td>string, int generate_time_safe()</td>
+        <td>Create a new unique UUID and returns zero if it has been generated in a safe manner, -1 otherwise.</td>
     </tr>
     <tr>
         <td>uuid_generate_random</td>
@@ -47,8 +47,8 @@ Or run the unittests: cd ./tests;./run-tests.lua
     </tr>
     <tr>
         <td>uuid_time</td>
-        <td>int time(string uuid)</td>
-        <td>Extract the time at which the UUID was created </td>
+        <td>int int time(string uuid)</td>
+        <td>Extract the time at which the UUID was created also returns integer indicating if UUID was valid</td>
     </tr>
     <tr>
         <td>uuid_compare</td>
