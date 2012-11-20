@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -g -O2 -fPIC -pedantic -ansi
+CFLAGS=-Wall -O2 -fPIC -pedantic -ansi -Wextra -std=c99 -pipe
 LFLAGS=-shared -luuid
 INC=-I/usr/include/lua5.1
 
