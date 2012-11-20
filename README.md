@@ -5,7 +5,8 @@ lunique probably only works on Linux operating systems (testet using Ubuntu)...
 lunique is very early in development, expect errors etc.
 
 ## Requirements ##
-* lua 5.1+
+* lua5.1+
+* liblua5.1-0-dev
 * uuid-dev
 * luaunit (http://phil.freehackers.org/programs/luaunit/) only required if you want to run the unittests in the ./tests folder
 
