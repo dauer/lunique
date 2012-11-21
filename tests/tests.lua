@@ -104,17 +104,18 @@ function Testing:testCompare_Fail()
     assertEquals(s3, -1)
     assertEquals(f4, 0)
     assertEquals(s4, -1)
-
 end
 
 function Testing:testValid()
     local result
-    -- Test a hardcoded valid, invalid and empty uuid string
+    -- Test a hardcoded valid, invalid, empty uuid string and to long uuid
     result  = lunique.valid("778d279d-dad5-4d32-b2a6-d325affeadbf")
     assertEquals(result, true)
     result = lunique.valid("778d279d+dad5-4d32-b2a6-d325affeadbf")
     assertEquals(result, false)
     result = lunique.valid("")
+    assertEquals(result, false)
+    result  = lunique.valid("778d279d-dad5-4d32-b2a6-d325affeadbf-d325affeadbf")
     assertEquals(result, false)
     -- Test all the uuid generator functions
     result = lunique.valid(lunique.generate())
