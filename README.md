@@ -6,7 +6,7 @@ lunique is very early in development, expect errors etc.
 
 ## Requirements ##
 * lua5.1+
-* liblua5.1-0-dev
+* liblua5.1-0-dev+
 * uuid-dev
 * luaunit (http://phil.freehackers.org/programs/luaunit/) only required if you want to run the unittests in the ./tests folder
 
@@ -54,7 +54,7 @@ Or run the unittests: cd ./tests;./run-tests.lua
     <tr>
         <td>uuid_compare</td>
         <td>int compare(string uuid1, string uuid2)</td>
-        <td>Compare whether two UUIDs are the same</td>
+        <td>Compare whether two UUIDs are the same [uuid_compare](http://linux.die.net/man/3/uuid_compare)</td>
     </tr>
     <tr>
         <td>uuid_parse</td>
@@ -62,7 +62,3 @@ Or run the unittests: cd ./tests;./run-tests.lua
         <td>Validates if a specified string is a valid UUID</td>
     </tr>
 </table>
-
-## Todo ##
-* Do thorough testing
-* Write better documentation
