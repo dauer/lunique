@@ -29,42 +29,42 @@ Or run the unittests: cd ./tests;./run-tests.lua
     <tr>
         <td>uuid_generate</td>
         <td>string generate()</td>
-        <td>Create a new unique UUID [uuid generate](http://linux.die.net/man/3/uuid_generate)</td>
+        <td>Create a new unique UUID (http://linux.die.net/man/3/uuid_generate)</td>
     </tr>
     <tr>
         <td>uuid_generate_time</td>
         <td>string generate_time()</td>
-        <td>Create a new unique UUID [uuid generate](http://linux.die.net/man/3/uuid_generate)</td>
+        <td>Create a new unique UUID (http://linux.die.net/man/3/uuid_generate)</td>
     </tr>
     <tr>
         <td>uuid_generate_time_safe</td>
         <td>string, int generate_time_safe()</td>
         <td>
             Create a new unique UUID and returns zero if it has been generated in a safe manner, -1 otherwise.
-            [uuid generate](http://linux.die.net/man/3/uuid_generate)
+            (http://linux.die.net/man/3/uuid_generate)
         </td>
     </tr>
     <tr>
         <td>uuid_generate_random</td>
         <td>string generate_random()</td>
-        <td>Create a new unique UUID [uuid generate](http://linux.die.net/man/3/uuid_generate)</td>
+        <td>Create a new unique UUID (http://linux.die.net/man/3/uuid_generate)</td>
     </tr>
     <tr>
         <td>uuid_time</td>
         <td>int int time(string uuid)</td>
         <td>
             Extract the time at which the UUID was created also returns integer indicating if UUID was valid
-            [uuid time](http://linux.die.net/man/3/uuid_time)
+            (http://linux.die.net/man/3/uuid_time)
         </td>
     </tr>
     <tr>
         <td>uuid_compare</td>
         <td>int compare(string uuid1, string uuid2)</td>
-        <td>Compare whether two UUIDs are the same [uuid compare](http://linux.die.net/man/3/uuid_compare)</td>
+        <td>Compare whether two UUIDs are the same (http://linux.die.net/man/3/uuid_compare)</td>
     </tr>
     <tr>
         <td>uuid_parse</td>
         <td>bool valid(string uuid)</td>
-        <td>Validates if a specified string is a valid UUID [uuid generate](http://linux.die.net/man/3/uuid_parse)</td>
+        <td>Validates if a specified string is a valid UUID (http://linux.die.net/man/3/uuid_parse)</td>
     </tr>
 </table>
