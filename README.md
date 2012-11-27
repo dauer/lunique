@@ -29,27 +29,33 @@ Or run the unittests: cd ./tests;./run-tests.lua
     <tr>
         <td>uuid_generate</td>
         <td>string generate()</td>
-        <td>Create a new unique UUID</td>
+        <td>Create a new unique UUID [uuid_generate](http://linux.die.net/man/3/uuid_generate)</td>
     </tr>
     <tr>
         <td>uuid_generate_time</td>
         <td>string generate_time()</td>
-        <td>Create a new unique UUID</td>
+        <td>Create a new unique UUID [uuid_generate](http://linux.die.net/man/3/uuid_generate)</td>
     </tr>
     <tr>
         <td>uuid_generate_time_safe</td>
         <td>string, int generate_time_safe()</td>
-        <td>Create a new unique UUID and returns zero if it has been generated in a safe manner, -1 otherwise.</td>
+        <td>
+            Create a new unique UUID and returns zero if it has been generated in a safe manner, -1 otherwise.
+            [uuid_generate](http://linux.die.net/man/3/uuid_generate)
+        </td>
     </tr>
     <tr>
         <td>uuid_generate_random</td>
         <td>string generate_random()</td>
-        <td>Create a new unique UUID</td>
+        <td>Create a new unique UUID [uuid_generate](http://linux.die.net/man/3/uuid_generate)</td>
     </tr>
     <tr>
         <td>uuid_time</td>
         <td>int int time(string uuid)</td>
-        <td>Extract the time at which the UUID was created also returns integer indicating if UUID was valid</td>
+        <td>
+            Extract the time at which the UUID was created also returns integer indicating if UUID was valid
+            [uuid_time](http://linux.die.net/man/3/uuid_time)
+        </td>
     </tr>
     <tr>
         <td>uuid_compare</td>
@@ -59,6 +65,6 @@ Or run the unittests: cd ./tests;./run-tests.lua
     <tr>
         <td>uuid_parse</td>
         <td>bool valid(string uuid)</td>
-        <td>Validates if a specified string is a valid UUID</td>
+        <td>Validates if a specified string is a valid UUID [uuid_generate](http://linux.die.net/man/3/uuid_parse)</td>
     </tr>
 </table>
