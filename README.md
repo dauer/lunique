@@ -51,7 +51,7 @@ Or run the unittests: cd ./tests;./run-tests.lua
     </tr>
     <tr>
         <td>uuid_time</td>
-        <td>int int time(string uuid)</td>
+        <td>int, int time(string uuid)</td>
         <td>
             Extract the time at which the UUID was created also returns integer indicating if UUID was valid
             (http://linux.die.net/man/3/uuid_time)
@@ -59,8 +59,11 @@ Or run the unittests: cd ./tests;./run-tests.lua
     </tr>
     <tr>
         <td>uuid_compare</td>
-        <td>int compare(string uuid1, string uuid2)</td>
-        <td>Compare whether two UUIDs are the same (http://linux.die.net/man/3/uuid_compare)</td>
+        <td>int, int compare(string uuid1, string uuid2)</td>
+        <td>
+            Compare whether two UUIDs are the same (http://linux.die.net/man/3/uuid_compare).
+            First return value is the result of the comparision, second return tells if any of the params are invalid (0 ok, -1 first param, -2 second param, -3 all parameters invalid)
+         </td>
     </tr>
     <tr>
         <td>uuid_parse</td>

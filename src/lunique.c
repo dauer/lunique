@@ -76,15 +76,18 @@ static int Ltime(lua_State *L) {
 
 static int Lcompare(lua_State *L) {
     uuid_t uuid1, uuid2;
-    int compare;
     const char *ustr1 = luaL_checkstring(L, 1);
     const char *ustr2 = luaL_checkstring(L, 2);
-    int status = uuid_parse(ustr1, uuid1);
-    status += uuid_parse(ustr2, uuid2);
-    compare = uuid_compare(uuid1, uuid2);
+    const int status1 = uuid_parse(ustr1, uuid1);
+    const int status2 = uuid_parse(ustr2, uuid2);
+    const int compare = uuid_compare(uuid1, uuid2);
+    int status = 0;
     lua_pushinteger(L, compare);
-    if(status != 0) {
-        status = -1;
+    if(status1 < 0) {
+        status += -1;
+    }
+    if(status2 < 0) {
+        status += -2;
     }
     lua_pushinteger(L, status);
     return 2;
