@@ -101,8 +101,15 @@ static int Lvalid(lua_State *L) {
     return 1;
 }
 
+#ifdef LUA51
 int luaopen_lunique(lua_State *L) {
     luaL_register(L, "lunique", API);
     lua_settable(L, -1);
     return 1;
 }
+#else
+void luaopen_lunique(lua_State *L) {
+    luaL_newlib(L, API);
+    lua_setglobal(L, "lunique");
+}
+#endif
