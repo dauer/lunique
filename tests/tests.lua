@@ -96,13 +96,9 @@ function Testing:testCompare_Fail()
     local f2, s2 = lunique.compare(uuid1, uuid2)
     local f3, s3 = lunique.compare(uuid2, uuid1)
     local f4, s4 = lunique.compare(uuid2, uuid3)
-    assertEquals(f1, -1)
     assertEquals(s1, -3)
-    assertEquals(f2, -1)
     assertEquals(s2, -1)
-    assertEquals(f3, 0)
     assertEquals(s3, -2)
-    assertEquals(f4, 0)
     assertEquals(s4, -2)
 end
 
