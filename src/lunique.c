@@ -9,7 +9,7 @@ static int Lgenerate_time_safe(lua_State *L);
 static int Lgenerate_random(lua_State *L);
 static int Ltime(lua_State *L);
 static int Lcompare(lua_State *L);
-static int Lvalid(lua_State *l);
+static int Lvalid(lua_State *L);
 
 static const luaL_Reg API[] = {
     { "generate", Lgenerate },
